@@ -5,5 +5,5 @@ permalink: /contact/
 ---
 # Contact
 
-Tu peux me joindre à :  
+Vous pouvez venir nous voir tous les jeudis, ou nous écrire par mail à :
 **email@example.com**
