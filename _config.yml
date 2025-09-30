@@ -1,0 +1,11 @@
+title: Franklinfos
+tagline: Le journal des élèves de Franklin
+description: 
+  Bienvenue sur le site de Franklinfos, le journal des élèves de Franklin.
+  Vous y trouverez des articles, des interviews, des tutos et bien plus encore.
+  N'hésitez pas à explorer et à partager vos idées !
+baseurl: "/fr1"
+url: "https://secondaire-xavier.github.io"
+
+markdown: kramdown
+theme: minima

@@ -1,0 +1,11 @@
+---
+layout: default
+---
+<article class="post">
+  <h2 class="post-title">{{ page.title }}</h2>
+  <p class="post-date"><small>Publié le {{ page.date | date: "%d/%m/%Y" }}</small></p>
+  <p class="post-author">Par {{ page.author }}</p>
+  <div class="post-content">
+    {{ content }}
+  </div>
+</article>
