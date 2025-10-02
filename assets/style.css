@@ -236,6 +236,8 @@ a:hover {
 }
 .post .post-tags {
   font-size: 15px;
+  color: var(--accent-dark);
+  align-self:center;
 }
 .post-content {
   font-size: 16px;
