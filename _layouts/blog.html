@@ -2,13 +2,44 @@
 layout: default
 ---
 <div class="blog">
-  <h2>Articles</h2>
-  <ul>
+  <h2 id="title">Articles</h2> <!-- Titre par défaut, modifié par JS -->
+  <ul id="post-list">
     {% for post in site.posts %}
-      <li>
+      <li data-tags="{{ post.tags | join: ',' }}" data-author="{{ post.author }}">
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        <small>({{ post.date | date: "%d/%m/%Y" }})</small>
+        <small>par <a href="/blog?author={{post.author | slugize}}#title" class="post-author">{{ post.author }}</a> - publié le {{ post.date | date: "%d/%m/%Y" }}</small>
       </li>
     {% endfor %}
   </ul>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const author = urlParams.get('author');
+    const tag = urlParams.get('tag');
+    
+    if (author || tag) {
+      document.getElementById("search").classList.add("selected");
+      document.getElementById("blog").classList.remove("active");
+
+      document.getElementById('title').textContent = `Résultats de la recherche pour ${tag ? 'le tag "' + tag + '"' : ''} ${author && tag ? 'et ' : ''}${author ? 'l\'auteur ' + author : ''} :`;
+      let no_results = true;
+      const posts = document.querySelectorAll('#post-list li');
+      posts.forEach(post => {
+        let show = false;
+        if (tag) {
+          const tags = post.dataset.tags ? post.dataset.tags.split(',') : [];
+          show = tags.includes(tag);
+        } else if (author) {
+          show = post.dataset.author === author;
+        }
+        if (show) no_results = false;
+        post.style.display = show ? 'list-item' : 'none';
+      });
+      if (no_results) {
+        document.getElementById('post-list').innerHTML = '<li>Aucun article trouvé.</li>';
+      }
+    }
+  });
+</script>
