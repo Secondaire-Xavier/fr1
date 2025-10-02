@@ -11,7 +11,7 @@ layout: default
     <p class="p-tags">
       {%- if page.tags -%}
         {% for tag in page.tags %}
-            <a href="{{ "/blog" | relative_url }}/blog?tag={{tag | slugize}}#title" class="tag">
+            <a href="{{ "/blog" | relative_url }}?tag={{tag | slugize}}#title" class="tag">
                 #{{ tag }}
             </a>
         {% endfor %}
