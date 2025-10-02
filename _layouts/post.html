@@ -5,7 +5,7 @@ layout: default
   <h2 class="post-title">{{ page.title }}</h2>
   <div class="infos">
     <p class="post-date">Publié le {{ page.date | date: "%d/%m/%Y" }}</p>
-    <p class="post-author">Par {{ page.author }}</p>
+    <p class="post-author">{{ page.author }}</p>
     <p class="post-tags">
       {%- if page.tags -%}
         {% for tag in page.tags %}
