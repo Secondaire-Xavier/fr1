@@ -5,13 +5,13 @@ layout: default
   <h2 class="p-title">{{ page.title }}</h2>
   <div class="infos">
     <p class="p-date">Publié le {{ page.date | date: "%d/%m/%Y" }}</p>
-    <p class="p-author"><a href="{{ site.baseurl }}/blog?author={{page.author | slugize}}#title" class="author">
+    <p class="p-author"><a href="{{ "/blog" | relative_url }}?author={{page.author | slugize}}#title" class="author">
                 {{ page.author }}
             </a></p>
     <p class="p-tags">
       {%- if page.tags -%}
         {% for tag in page.tags %}
-            <a href="{{ site.baseurl }}/blog?tag={{tag | slugize}}#title" class="tag">
+            <a href="{{ "/blog" | relative_url }}/blog?tag={{tag | slugize}}#title" class="tag">
                 #{{ tag }}
             </a>
         {% endfor %}
