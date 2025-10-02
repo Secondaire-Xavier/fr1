@@ -28,7 +28,10 @@ layout: default
       const posts = document.querySelectorAll('#post-list li');
       posts.forEach(post => {
         let show = false;
-        if (tag) {
+        if (tag && author) {
+          const tags = post.dataset.tags ? post.dataset.tags.split(',') : [];
+          show = tags.includes(tag) && post.dataset.author === author;
+        } else if (tag) {
           const tags = post.dataset.tags ? post.dataset.tags.split(',') : [];
           show = tags.includes(tag);
         } else if (author) {
