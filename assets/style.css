@@ -185,6 +185,10 @@ a:hover {
   color: var(--accent);
 }
 
+.post .infos{
+  display: flex;
+}
+
 .post-date {
   color: var(--muted);
   font-size: 14px;
