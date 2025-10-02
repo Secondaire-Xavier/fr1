@@ -5,6 +5,15 @@ layout: default
   <h2 class="post-title">{{ page.title }}</h2>
   <p class="post-date"><small>Publié le {{ page.date | date: "%d/%m/%Y" }}</small></p>
   <p class="post-author">Par {{ page.author }}</p>
+  <p class="post-tags">
+    {%- if page.tags -%}
+      {% for tag in page.tags %}
+          <a href="{{site.baseurl}}/blog#{{tag | slugize}}">
+              #{{ tag }}
+          </a>
+      {% endfor %}
+    {%- endif -%}
+  </p>
   <div class="post-content">
     {{ content }}
   </div>
