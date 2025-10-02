@@ -224,11 +224,13 @@ a:hover {
   color: var(--muted);
   font-size: 18px;
   font-weight: 400;
+}
+.post .post-tags {
+  font-size: 15px;
   margin: 0 0 24px;
   padding-bottom: 20px;
   border-bottom: 2px solid var(--border);
 }
-
 .post-content {
   font-size: 16px;
   line-height: 1.8;
