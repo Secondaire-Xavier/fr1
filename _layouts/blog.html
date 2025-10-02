@@ -7,7 +7,7 @@ layout: default
     {% for post in site.posts %}
       <li data-tags="{{ post.tags | join: ',' }}" data-author="{{ post.author }}">
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        <small>par <a href="/blog?author={{post.author | slugize}}#title" class="post-author">{{ post.author }}</a> - publié le {{ post.date | date: "%d/%m/%Y" }}</small>
+        <small>par <a href="{{ site.baseurl }}/blog?author={{post.author | slugize}}#title" class="post-author">{{ post.author }}</a> - publié le {{ post.date | date: "%d/%m/%Y" }}</small>
       </li>
     {% endfor %}
   </ul>
