@@ -38,9 +38,11 @@ body {
 }
 
 .logo-box {
-  background: white;
+  background: rgb(255, 255, 255);
   margin-left: calc(25% - 30px);
   border-radius: 12px;
+  border-bottom-left-radius: 100% 100%;
+  border-bottom-right-radius: 100% 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,7 +54,9 @@ body {
   height: 140px;
   width: auto;
   display: block;
-  border-radius: 12px;
+  border-bottom-left-radius: 50% 55%;
+  border-bottom-right-radius: 50% 55%;
+  padding: 5px;
 }
 
 .title-box {
@@ -412,13 +416,15 @@ small {
 }
 
 /* Tables */
+.table-container {
+  overflow-x: auto;
+} 
 .post-content table {
   width: 100%;
   border-collapse: collapse;
   margin: 24px 0;
   background: var(--card);
   border-radius: 8px;
-  overflow: hidden;
   box-shadow: 0 2px 8px rgba(11, 11, 11, 0.06);
   border: 1px solid var(--border);
 }
@@ -446,6 +452,7 @@ small {
   border-bottom: 1px solid var(--border);
   border-right: 1px solid rgba(158, 120, 120, 0.4);
   color: var(--text);
+  min-width: 170px;
 }
 
 .post-content table td:last-child {
@@ -497,6 +504,7 @@ small {
 
   .logo {
     height: 120px;
+    padding: 3px;
   }
 
   .site-header h1 {
@@ -512,10 +520,7 @@ small {
 @media (max-width: 600px) {
   .logo {
     height: 100px;
-  }
-
-  .logo-box {
-    padding: 10px 4px;
+    padding: 2px;
   }
 
   .site-header h1 {
