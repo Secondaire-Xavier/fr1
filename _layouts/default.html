@@ -78,6 +78,17 @@
         }
       }
     }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelectorAll("table").forEach(function(tbl) {
+        if (!tbl.parentElement.classList.contains("table-container")) {
+          let wrapper = document.createElement("div");
+          wrapper.className = "table-container";
+          tbl.parentNode.insertBefore(wrapper, tbl);
+          wrapper.appendChild(tbl);
+        }
+      });
+    });
   </script>
 </body>
 </html>
