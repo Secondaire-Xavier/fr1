@@ -5,9 +5,21 @@ layout: default
   <h2 id="title">Articles</h2> <!-- Titre par défaut, modifié par JS -->
   <ul id="post-list">
     {% for post in site.posts %}
-      <li data-tags="{{ post.tags | join: ',' }}" data-author="{{ post.author }}">
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        <small>par <a href="{{ "/blog" | relative_url }}?author={{post.author | slugize}}#title" class="post-author">{{ post.author }}</a> - publié le {{ post.date | date: "%d/%m/%Y" }}</small>
+    <li class="post-list-item" data-tags="{{ post.tags | join: ',' }}" data-author="{{ post.author }}">
+        <img src="{{ post.image | default: '/assets/images/default-image.jpg' | relative_url }}" alt="Image for {{ post.title }}" class="post-list-item-image"/>
+        <div class="post-list-item-content">
+        <a href="{{ post.url | relative_url }}" class="post-list-item-title">{{ post.title }}</a>
+        <small class="post-list-item-small">par <a href="{{ "/blog" | relative_url }}?author={{post.author | slugize}}#title" class="post-list-item-author">{{ post.author }}</a> - publié le {{ post.date | date: "%d/%m/%Y" }}</small>
+        <p class="post-list-item-tags">
+          {% if post.tags %}
+            {% for tag in post.tags %}
+                <a href="{{ "/blog" | relative_url }}?tag={{tag | slugize}}#title" class="post-list-item-tag">
+                    #{{ tag }}
+                </a>
+            {% endfor %}
+          {% endif %}
+        </p>
+        </div>
       </li>
     {% endfor %}
   </ul>
@@ -37,8 +49,12 @@ layout: default
         } else if (author) {
           show = post.dataset.author === author;
         }
-        if (show) no_results = false;
-        post.style.display = show ? 'list-item' : 'none';
+        if (show) {
+          no_results = false;
+        }
+        else {
+          post.style.display = 'none';
+        }
       });
       if (no_results) {
         document.getElementById('post-list').innerHTML = '<li>Aucun article trouvé.</li>';
