@@ -4,6 +4,7 @@ title: "Guide complet du MarkDown"
 date: 2025-10-02
 author: "Claude.ai"
 tags: ["tuto","site"]
+image: "https://download.logo.wine/logo/Markdown/Markdown-Logo.wine.png"
 ---
 
 # Bienvenue dans le monde du Markdown !
@@ -18,6 +19,22 @@ Imaginez que vous écrivez un message, et qu'en ajoutant quelques symboles simpl
 - **C'est rapide** : une fois que vous connaissez les symboles, c'est plus vite que d'utiliser une souris
 - **C'est universel** : le Markdown fonctionne partout sur internet
 - **C'est lisible** : même sans transformation, votre texte reste facile à lire
+
+## Comment créer un article ?
+
+Il faut créer un fichier Markdown, avec cet en-tête (ne pas oublier les trois tirets avant et après !):
+```
+---
+layout: post
+title: "Titre de l'article"
+date: YYYY-MM-DD
+author: "Auteur de l'article"
+tags: ["tags éventuels", "tous entres guillemets", "listés comme ça"]
+---
+```
+Si vous voulez rajouter une image qui s'affichera à côté du titre de l'article, il faut rajouter cette ligne :  
+`image: "lien de l'image (voir plus bas)"`  
+Ensuite, vous pouvez écrire votre article, mis en page grâce aux techniques suivantes :
 
 ## Les titres et séparateurs : structurer votre contenu
 
@@ -164,6 +181,7 @@ Pour ajouter une image, c'est presque comme un lien, mais avec un point d'exclam
 ```
 
 La description entre crochets est importante : elle s'affiche si l'image ne charge pas, et aide les personnes malvoyantes à comprendre votre image.
+L'image peut soit être enregistrée dans le répertoire GitHub, soit provenir d'un site Internet.
 
 ## Les citations : mettre en avant des passages
 
@@ -252,10 +270,9 @@ Le Markdown n'a rien de compliqué ! Avec ces quelques symboles simples :
 - `[texte](lien)` pour les liens
 - `![texte](image)` pour les images
 - `---` pour un séparateur
-- N'oubliez pas de sauter plusieurs lignes, ce n'est jamais trop en Markdown !
+- Deux espaces après le texte pour un retour à la ligne, une ligne vide pour sauter une ligne
 
-Vous pouvez créer des articles magnifiques et professionnels. L'essentiel est de pratiquer : plus vous utiliserez le Markdown, plus ce sera naturel.
-
-N'ayez pas peur d'expérimenter ! Le Markdown est fait pour être simple et intuitif. Alors lancez-vous, écrivez, et amusez-vous bien !
+Vous pouvez créer des articles magnifiques et professionnels. L'essentiel est de pratiquer : plus vous utiliserez le Markdown, plus ce sera naturel.  
+N'ayez pas peur d'essayer ! Le Markdown est fait pour être simple et intuitif. Alors lancez-vous, et amusez-vous bien !
 
 **Bon courage dans vos futures créations !** 🚀
