@@ -2,6 +2,9 @@
 layout: default
 ---
 <article class="post">
+  <div class="p-header">
+  <img src="{{ page.image | default: '/assets/images/default-image.jpg' | relative_url }}" alt="Image for {{ page.title }}" class="p-image"/>
+  <div>
   <h2 class="p-title">{{ page.title }}</h2>
   <div class="infos">
     <p class="p-date">Publié le {{ page.date | date: "%d/%m/%Y" }}</p>
@@ -18,7 +21,26 @@ layout: default
       {% endif %}
     </p>
   </div>
+  </div>
+  </div>
   <div class="post-content">
     {{ content }}
   </div>
 </article>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.querySelector(".post-content");
+  if (!container) return;
+
+  container.innerHTML = container.innerHTML
+    .replace(/<br\s*\/?>/gi, "</p><p class='br'>");
+
+  if (!container.innerHTML.startsWith("<p>")) {
+    container.innerHTML = "<p>" + container.innerHTML;
+  }
+  if (!container.innerHTML.endsWith("</p>")) {
+    container.innerHTML = container.innerHTML + "</p>";
+  }
+});
+</script>
