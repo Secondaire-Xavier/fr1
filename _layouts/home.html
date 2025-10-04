@@ -4,4 +4,28 @@ layout: default
 <div class="home">
   <h2>Bienvenue</h2>
   <p>Bienvenue sur le site de Franklinfos, le journal des élèves de Franklin</p>
+  <p>Retrouvez ici tous les articles publiés dans le journal, ainsi que des informations sur les événements à venir, des interviews, des tutos, et plein d'autres surprises !</p>
+  <h2>À la une</h2>
+  <ul>
+  {% for post in site.posts %}
+    {% if post.tags contains "à la une" %}
+      <li class="post-list-item">
+        <img src="{{ post.image | default: '/assets/images/default-image.jpg' | relative_url }}" alt="Image for {{ post.title }}" class="post-list-item-image"/>
+        <div class="post-list-item-content">
+        <a href="{{ post.url | relative_url }}" class="post-list-item-title">{{ post.title }}</a>
+        <small class="post-list-item-small">par <a href="{{ "/blog" | relative_url }}?author={{post.author | slugize}}#title" class="post-list-item-author">{{ post.author }}</a> - publié le {{ post.date | date: "%d/%m/%Y" }}</small>
+        <p class="post-list-item-tags">
+          {% if post.tags %}
+            {% for tag in post.tags %}
+                <a href="{{ "/blog" | relative_url }}?tag={{tag | slugize}}#title" class="post-list-item-tag">
+                    #{{ tag }}
+                </a>
+            {% endfor %}
+          {% endif %}
+        </p>
+        </div>
+      </li>
+    {% endif %}
+  {% endfor %}
+  </ul>
 </div>
