@@ -32,7 +32,7 @@ layout: default
     const tag = urlParams.get('tag');
     
     if (author || tag) {
-      document.getElementById("search").classList.add("selected");
+      document.getElementById("search").classList.add("active");
       document.getElementById("blog").classList.remove("active");
 
       document.getElementById('title').textContent = `Résultats de la recherche pour ${tag ? 'le tag "' + tag + '"' : ''} ${author && tag ? 'et ' : ''}${author ? 'l\'auteur ' + author : ''} :`;
