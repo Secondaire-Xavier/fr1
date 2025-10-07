@@ -181,7 +181,7 @@ Pour ajouter une image, c'est presque comme un lien, mais avec un point d'exclam
 ```
 
 La description entre crochets est importante : elle s'affiche si l'image ne charge pas, et aide les personnes malvoyantes à comprendre votre image.
-L'image peut soit être enregistrée dans le répertoire GitHub, soit provenir d'un site Internet. Si l'image provient du répertoire GitHub, elle doit être enregistrée dans `/assets/images/votre-image.jpg`. Son lien sera alors le suivant : `{{ site.baseurl }}/assets/images/votre-image.jpg`.
+L'image peut soit être enregistrée dans le répertoire GitHub, soit provenir d'un site Internet. Si l'image provient du répertoire GitHub, elle doit être enregistrée dans `/assets/images/votre-image.jpg`. Son lien sera alors le suivant : `{% raw %}{{ site.baseurl }}/assets/images/votre-image.jpg{% endraw %}`.
 
 ## Les citations : mettre en avant des passages
 
