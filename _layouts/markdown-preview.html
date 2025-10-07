@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Markdown Preview</title>
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+  .editor-container {
+    display: flex;
+    height: 90vh;
+    gap: 20px;
+    padding: 20px;
+  }
+  textarea {
+    flex: 1;
+    resize: none;
+    font-family: monospace;
+    font-size: 16px;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .preview {
+    flex: 1;
+    overflow-y: auto;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    background: var(--card);
+  }
+</style>
+</head>
+<body>
+  <header class="site-header" style="height: 60px; padding: 0px;">
+    <div class="header-inner" style="margin: 0px; padding: 0px;">
+      <div class="title-box" style="text-align: center; margin: 0px; padding: 5px 0px 5px 80px;">
+        <h1>Prévisualisation Markdown</h1>
+      </div>
+    </div>
+  </header>
+
+  <div class="editor-container">
+    <textarea id="editor"># Éditeur Markdown avec prévisualisation
+1. Ecris ici ton **Markdown**.
+2. Vois le rendu en temps réel à droite.
+
+Rappel des syntaxes courantes :
+- `#` pour les titres
+- `*` ou `_` pour l'italique et le gras
+- `-` pour les listes
+- `>` pour les citations
+- `[texte](lien)` pour les liens
+- `![texte](image)` pour les images
+- `---` pour un séparateur
+- Deux espaces après le texte pour un retour à la ligne, une ligne vide pour sauter une ligne
+
+*Pour plus d'informations, consulte [la documentation Markdown](https://www.markdownguide.org/basic-syntax/).*</textarea>
+    <div id="preview" class="preview post-content"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    const editor = document.getElementById("editor");
+    const preview = document.getElementById("preview");
+
+    function render() {
+      preview.innerHTML = marked.parse(editor.value, { breaks: true });
+    }
+
+    editor.addEventListener("input", render);
+    render();
+  </script>
+</body>
+</html>
