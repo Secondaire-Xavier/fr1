@@ -60,5 +60,11 @@ layout: default
         document.getElementById('post-list').innerHTML = '<li>Aucun article trouvé.</li>';
       }
     }
+
+    if (!author && !tag) {
+      if (document.getElementsByClassName("post-list-item").length === 0) {
+        document.getElementById('post-list').innerHTML = '<li>Aucun article à afficher.</li>';
+      }
+    }
   });
 </script>
