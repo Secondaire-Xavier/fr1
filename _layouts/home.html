@@ -29,3 +29,11 @@ layout: default
   {% endfor %}
   </ul>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (document.getElementsByClassName("post-list-item").length === 0) {
+        document.getElementById('post-list').innerHTML = '<li>Aucun article à la une.</li>';
+    }
+  });
+</script>
