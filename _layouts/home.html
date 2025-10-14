@@ -6,7 +6,7 @@ layout: default
   <p>Bienvenue sur le site de Franklinfos, le journal des élèves de Franklin</p>
   <p>Retrouvez ici tous les articles publiés dans le journal, ainsi que des informations sur les événements à venir, des interviews, des tutos, et plein d'autres surprises !</p>
   <h2>À la une</h2>
-  <ul>
+  <ul id="post-list">
   {% for post in site.posts %}
     {% if post.tags contains "à la une" %}
       <li class="post-list-item">
